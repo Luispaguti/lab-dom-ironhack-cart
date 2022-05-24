@@ -25,7 +25,7 @@ function calculateAll() {
 
   const total = products.reduce((subtotal,  product) => {
 
-    return subtotal + updateSubtotal(product);
+    return total + updateSubtotal(product);
 
 
   }, 0)
@@ -53,6 +53,7 @@ function removeProduct(event) {
   const target = event.currentTarget;
   console.log('The target in remove is:', target);
   //... your code goes here
+  target.parentNode.remove()
 }
 
 // ITERATION 5
@@ -66,4 +67,10 @@ window.addEventListener('load', () => {
   calculatePricesBtn.addEventListener('click', calculateAll);
 
   //... your code goes here
+
+  const removeBtn = document.querySelector('btn btn-remove');
+  removeBtn.addEventListener('click',(event) => removeProduct(event) )
+
 });
+
+
